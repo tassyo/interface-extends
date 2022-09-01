@@ -10,6 +10,7 @@ export class SavingAccount {
             this._balance -= money
             return money
         }
+        return money
     }
 
     deposit(money) {

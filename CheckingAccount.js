@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import { Client } from './Client.js'
 
 export class CheckingAccount {
@@ -29,6 +30,7 @@ export class CheckingAccount {
             this._balance -= money
             return money
         }
+        return money
     }
 
     deposit(money) {
