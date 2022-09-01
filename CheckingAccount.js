@@ -2,9 +2,17 @@ import { Client } from './Client.js'
 
 export class CheckingAccount {
     static numberAccounts = 0
-    agency
-    _balance = 0
-    _client
+
+    constructor(agency, client) {
+        this.client = client
+        this.agency = agency
+        this._balance = 0
+        CheckingAccount.numberAccounts += 1
+    }
+
+    get client() {
+        return this._client
+    }
 
     set client(value) {
         if (value instanceof Client) {
@@ -12,23 +20,13 @@ export class CheckingAccount {
         }
     }
 
-    get client() {
-        return this._client
-    }
-
     get balance() {
         return this._balance
     }
 
-    constructor(agency, client) {
-        this.client = client
-        this.agency = agency
-        CheckingAccount.numberAccounts += 1
-    }
-
-    withdraw(money){
-        if(this._balance >= money){
-            this._balance-=money
+    withdraw(money) {
+        if (this._balance >= money) {
+            this._balance -= money
             return money
         }
     }
@@ -38,7 +36,7 @@ export class CheckingAccount {
         this._balance += money
     }
 
-    transfer(money, account){
+    transfer(money, account) {
         const withdrawMoney = this.withdraw(money)
         account.deposit(withdrawMoney)
     }
