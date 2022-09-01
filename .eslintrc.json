@@ -19,7 +19,8 @@
     "comma-dangle": "off",
     "prettier/prettier": "error",
     "no-underscore-dangle": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "import/extensions": "off"
   },
   "plugins": [
     "prettier"
