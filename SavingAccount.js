@@ -1,25 +1,8 @@
-export class SavingAccount {
+import { Account } from './Account.js'
+
+export class SavingAccount extends Account {
+    // eslint-disable-next-line no-useless-constructor
     constructor(initialBalance, client, agency) {
-        this._balance = initialBalance
-        this._client = client
-        this._agency = agency
-    }
-
-    withdraw(money) {
-        if (this._balance >= money) {
-            this._balance -= money
-            return money
-        }
-        return money
-    }
-
-    deposit(money) {
-        if (money <= 0) return
-        this._balance += money
-    }
-
-    transfer(money, account) {
-        const withdrawMoney = this.withdraw(money)
-        account.deposit(withdrawMoney)
+        super(initialBalance, client, agency)
     }
 }

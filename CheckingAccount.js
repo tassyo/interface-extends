@@ -1,45 +1,10 @@
-// eslint-disable-next-line import/extensions
-import { Client } from './Client.js'
+import { Account } from './Account.js'
 
-export class CheckingAccount {
+export class CheckingAccount extends Account {
     static numberAccounts = 0
 
     constructor(agency, client) {
-        this.client = client
-        this.agency = agency
-        this._balance = 0
+        super(0, agency, client)
         CheckingAccount.numberAccounts += 1
-    }
-
-    get client() {
-        return this._client
-    }
-
-    set client(value) {
-        if (value instanceof Client) {
-            this._client = value
-        }
-    }
-
-    get balance() {
-        return this._balance
-    }
-
-    withdraw(money) {
-        if (this._balance >= money) {
-            this._balance -= money
-            return money
-        }
-        return money
-    }
-
-    deposit(money) {
-        if (money <= 0) return
-        this._balance += money
-    }
-
-    transfer(money, account) {
-        const withdrawMoney = this.withdraw(money)
-        account.deposit(withdrawMoney)
     }
 }
