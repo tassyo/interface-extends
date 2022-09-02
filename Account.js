@@ -22,11 +22,17 @@ export class Account {
     }
 
     withdraw(money) {
-        if (this._balance >= money) {
-            this._balance -= money
-            return money
+        const fee = 1
+        return this._withdraw(money, fee)
+    }
+
+    _withdraw(money, fee) {
+        const moneyWithdraw = fee * money
+        if (this._balance >= moneyWithdraw) {
+            this._balance -= moneyWithdraw
+            return moneyWithdraw
         }
-        return money
+        return 0
     }
 
     deposit(money) {
