@@ -5,4 +5,10 @@ export class SavingAccount extends Account {
     constructor(initialBalance, client, agency) {
         super(initialBalance, client, agency)
     }
+
+    // override withdraw
+    withdraw(money) {
+        const fee = 1.1
+        return this._withdraw(money, fee)
+    }
 }
