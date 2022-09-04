@@ -7,8 +7,8 @@ export class Employee {
         this._password = null
     }
 
-    get password() {
-        return this._password
+    authenticator(password) {
+        return password === this._password
     }
 
     createPassword(password) {
