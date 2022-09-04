@@ -7,4 +7,9 @@ export class CheckingAccount extends Account {
         super(0, agency, client)
         CheckingAccount.numberAccounts += 1
     }
+
+    withdraw(money) {
+        const fee = 1.02
+        return this._withdraw(money, fee)
+    }
 }
