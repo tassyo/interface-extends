@@ -1,6 +1,6 @@
-import { Client } from './Client.js'
-import { CheckingAccount } from './CheckingAccount.js'
-import { SavingAccount } from './SavingAccount.js'
+import { Client } from './Client/Client.js'
+import { CheckingAccount } from './Account/CheckingAccount.js'
+import { SavingAccount } from './Account/SavingAccount.js'
 
 const client1 = new Client('Ricardo', 11122233309)
 
